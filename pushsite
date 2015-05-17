@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pwd=`pwd`
+site=`basename $pwd`
+
+mv _site public_html
+scp -r public_html $WEBSERVER:$SITES/$site
+mv public_html _site
+
+echo "Deployment successful...hopefully." 
+
